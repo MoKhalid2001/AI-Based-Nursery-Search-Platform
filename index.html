@@ -14,27 +14,44 @@
   <div class="container">
     <header class="header">
       <div class="header-content">
-        <h1>AI Nursery Search</h1>
-        <p>Find the perfect nursery with our intelligent search assistant</p>
+        <div class="header-title">
+          <span class="material-icons header-icon">child_care</span>
+          <div>
+            <h1>AI Nursery Search</h1>
+            <p>Find the perfect nursery with our intelligent search assistant</p>
+          </div>
+        </div>
       </div>
       <div class="header-actions">
         <button class="theme-toggle" id="themeToggle">
           <span class="material-icons">dark_mode</span>
         </button>
-        <button class="lang-toggle">EN | AR</button>
+        <button class="lang-toggle">
+          <span class="material-icons">language</span>
+          EN
+        </button>
       </div>
     </header>
 
     <div class="main-content">
       <aside class="filters-panel">
         <div class="filters-header">
-          <h2><span class="material-icons">filter_list</span> Filters</h2>
-          <button id="clearFilters" class="clear-filters">Clear All</button>
+          <div class="filters-title">
+            <span class="material-icons">tune</span>
+            <h2>Filters</h2>
+          </div>
+          <button id="clearFilters" class="clear-filters">
+            <span class="material-icons">refresh</span>
+            Clear All
+          </button>
         </div>
         
         <div class="filter-group">
-          <label>Location</label>
-          <select id="locationFilter">
+          <label class="filter-label">
+            <span class="material-icons">location_on</span>
+            Location
+          </label>
+          <select id="locationFilter" class="filter-select">
             <option value="">All Locations</option>
             <option value="Downtown">Downtown</option>
             <option value="Suburbs">Suburbs</option>
@@ -43,66 +60,78 @@
         </div>
 
         <div class="filter-group">
-          <label>Age Groups</label>
+          <label class="filter-label">
+            <span class="material-icons">child_care</span>
+            Age Groups
+          </label>
           <div class="checkbox-group">
             <label class="checkbox-label">
               <input type="checkbox" value="0-2" name="ageGroup">
-              0-2 years
+              <span class="checkbox-text">0-2 years</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="3-4" name="ageGroup">
-              3-4 years
+              <span class="checkbox-text">3-4 years</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="5-6" name="ageGroup">
-              5-6 years
+              <span class="checkbox-text">5-6 years</span>
             </label>
           </div>
         </div>
 
         <div class="filter-group">
-          <label>Facilities</label>
+          <label class="filter-label">
+            <span class="material-icons">widgets</span>
+            Facilities
+          </label>
           <div class="checkbox-group">
             <label class="checkbox-label">
               <input type="checkbox" value="Play Area" name="facility">
-              Play Area
+              <span class="checkbox-text">Play Area</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="Safety Features" name="facility">
-              Safety Features
+              <span class="checkbox-text">Safety Features</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="Outdoor Space" name="facility">
-              Outdoor Space
+              <span class="checkbox-text">Outdoor Space</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="Indoor Play Zone" name="facility">
-              Indoor Play Zone
+              <span class="checkbox-text">Indoor Play Zone</span>
             </label>
           </div>
         </div>
 
         <div class="filter-group">
-          <label>Languages</label>
+          <label class="filter-label">
+            <span class="material-icons">translate</span>
+            Languages
+          </label>
           <div class="checkbox-group">
             <label class="checkbox-label">
               <input type="checkbox" value="English" name="language">
-              English
+              <span class="checkbox-text">English</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="Arabic" name="language">
-              Arabic
+              <span class="checkbox-text">Arabic</span>
             </label>
             <label class="checkbox-label">
               <input type="checkbox" value="French" name="language">
-              French
+              <span class="checkbox-text">French</span>
             </label>
           </div>
         </div>
 
         <div class="filter-group">
-          <label>Fees Range</label>
-          <select id="feesFilter">
+          <label class="filter-label">
+            <span class="material-icons">payments</span>
+            Fees Range
+          </label>
+          <select id="feesFilter" class="filter-select">
             <option value="">All Ranges</option>
             <option value="Low">Low</option>
             <option value="Moderate">Moderate</option>
@@ -175,10 +204,78 @@
       </main>
     </div>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-      <span class="material-icons">arrow_upward</span>
-    </button>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-title">
+            <span class="material-icons footer-icon">child_care</span>
+            <div>
+              <h3>AI Nursery Search</h3>
+              <p>Making childcare search smarter</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Search Nurseries</a></li>
+              <li><a href="#">Featured Centers</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Nursery Guide</a></li>
+              <li><a href="#">Safety Standards</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <ul>
+              <li>
+                <span class="material-icons">email</span>
+                <a href="mailto:info@ainursery.com">info@ainursery.com</a>
+              </li>
+              <li>
+                <span class="material-icons">phone</span>
+                <a href="tel:+1234567890">+1 (234) 567-890</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 AI Nursery Search. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">
+            <span class="material-icons">facebook</span>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <span class="material-icons">twitter</span>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <span class="material-icons">instagram</span>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <span class="material-icons">linkedin</span>
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <span class="material-icons">arrow_upward</span>
+  </button>
 
   <script src="app.js"></script>
 </body>
