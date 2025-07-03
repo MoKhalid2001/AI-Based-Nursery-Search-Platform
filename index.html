@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Nursery Search</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <!-- Add Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>AI Nursery Search</h1>
+        <p>Find the perfect nursery with our intelligent search assistant</p>
+      </div>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <span class="material-icons">dark_mode</span>
+        </button>
+        <button class="lang-toggle">EN | AR</button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <aside class="filters-panel">
+        <div class="filters-header">
+          <h2><span class="material-icons">filter_list</span> Filters</h2>
+          <button id="clearFilters" class="clear-filters">Clear All</button>
+        </div>
+        
+        <div class="filter-group">
+          <label>Location</label>
+          <select id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="Downtown">Downtown</option>
+            <option value="Suburbs">Suburbs</option>
+            <option value="East Side">East Side</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Age Groups</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" value="0-2" name="ageGroup">
+              0-2 years
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="3-4" name="ageGroup">
+              3-4 years
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="5-6" name="ageGroup">
+              5-6 years
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Facilities</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" value="Play Area" name="facility">
+              Play Area
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="Safety Features" name="facility">
+              Safety Features
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="Outdoor Space" name="facility">
+              Outdoor Space
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="Indoor Play Zone" name="facility">
+              Indoor Play Zone
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Languages</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" value="English" name="language">
+              English
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="Arabic" name="language">
+              Arabic
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" value="French" name="language">
+              French
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Fees Range</label>
+          <select id="feesFilter">
+            <option value="">All Ranges</option>
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <section class="search-section">
+          <div class="search-bar">
+            <span class="material-icons search-icon">search</span>
+            <input type="text" id="searchBar" placeholder="Search nurseries by name...">
+          </div>
+          <div class="active-filters">
+            <div class="filter-tags" id="filterTags"></div>
+            <div class="results-count" id="resultsCount"></div>
+          </div>
+        </section>
+
+        <div class="view-controls">
+          <button class="view-toggle active" data-view="grid">
+            <span class="material-icons">grid_view</span>
+          </button>
+          <button class="view-toggle" data-view="list">
+            <span class="material-icons">view_list</span>
+          </button>
+          <div class="sort-control">
+            <select id="sortSelect">
+              <option value="name">Sort by Name</option>
+              <option value="fees">Sort by Fees</option>
+              <option value="rating">Sort by Rating</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="nurseryListings" class="nursery-listings grid-view">
+          <!-- Nursery cards will be dynamically inserted here -->
+        </div>
+
+        <div class="ai-chat-window" id="aiChatWindow">
+          <div class="ai-chat-header">
+            <h3>🤖 AI Search Assistant</h3>
+            <div class="chat-controls">
+              <button class="minimize-chat" id="minimizeChat">
+                <span class="material-icons">remove</span>
+              </button>
+              <button class="close-chat" id="closeChat">
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+          </div>
+          <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="ai-chat-bubble ai">
+              Hello! I'm your nursery search assistant. How can I help you find the perfect nursery?
+            </div>
+          </div>
+          <form class="ai-chat-form" id="aiChatForm">
+            <input type="text" id="aiChatInput" class="ai-chat-input" 
+                   placeholder="Ask me about nurseries (e.g., 'Find nurseries for age 4 with outdoor space')" 
+                   autocomplete="off">
+            <button type="submit" class="ai-chat-submit">
+              <span class="material-icons">send</span>
+            </button>
+            <button type="button" id="aiMicBtn" class="ai-mic-btn">
+              <span class="material-icons">mic</span>
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <span class="material-icons">arrow_upward</span>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html> 
