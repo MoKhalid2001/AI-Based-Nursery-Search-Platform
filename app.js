@@ -68,16 +68,42 @@ function renderNurseries(nurseryList) {
         </div>
       </div>
       <div class="nursery-info">
-        <h3>${nursery.name}</h3>
-        <p class="location">
-          <span class="material-icons">location_on</span>
-          ${nursery.location}
-        </p>
+        <div class="nursery-header">
+          <h3>${nursery.name}</h3>
+          <div class="location">
+            <span class="material-icons">location_on</span>
+            ${nursery.location}
+          </div>
+        </div>
         <div class="details">
-          <p><strong>Age Groups:</strong> ${nursery.ageGroups.join(', ')}</p>
-          <p><strong>Languages:</strong> ${nursery.languages.join(', ')}</p>
-          <p><strong>Facilities:</strong> ${nursery.facilities.join(', ')}</p>
-          <p><strong>Fees:</strong> ${nursery.fees}</p>
+          <div class="detail-item">
+            <span class="material-icons">child_care</span>
+            <div>
+              <label>Age Groups:</label>
+              <p>${nursery.ageGroups.join(', ')}</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons">translate</span>
+            <div>
+              <label>Languages:</label>
+              <p>${nursery.languages.join(', ')}</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons">widgets</span>
+            <div>
+              <label>Facilities:</label>
+              <p>${nursery.facilities.join(', ')}</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons">payments</span>
+            <div>
+              <label>Fees:</label>
+              <p>${nursery.fees}</p>
+            </div>
+          </div>
         </div>
         <button class="contact-btn" onclick="event.stopPropagation()">
           <span class="material-icons">phone</span>
